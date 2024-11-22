@@ -4,6 +4,7 @@ SetTitleMatchMode 2 ; set match mode to match if the title contains the given st
 #HotIf WinActive("Final Fantasy IV Advance") ; only apply the following hotkeys if a FF window is focused
 HoldTime := 50
 IntervalTime := 50
+TurnIntervalTime := 500
 
 PressKey(key) {
     Send "{" . key . " down}"
@@ -17,9 +18,26 @@ PressKeys(keys) {
         PressKey(keys[A_Index])
 }
 
+Combat() {
+    PressKeys(AttackKeys) ; Edge
+    Sleep TurnIntervalTime
+    PressKeys(AttackKeys) ; Cecil
+    Sleep TurnIntervalTime
+    PressKeys(LydiaThundaga) ; Lydia
+    Sleep TurnIntervalTime
+    PressKeys(RosaCureda) ; Rosa
+}
+
+LydiaThundaga := ["Down", "x", "Down", "Down", "Down", "Down", "Down", "Down", "Down", "Down", "Right", "x", "Left", "Left", "Left", "x"]
+RosaCureda := ["Down", "x", "Down", "Down", "Down", "Down", "Down", "Down", "Down", "x", "Right", "x"]
 ParomuFiraKeys := ["Down", "x", "Down", "Down", "Down", "Right", "x", "Left", "Left", "Left", "x"]
 AttackKeys := ["x", "x"]
-TeraFiraKeys := ["Down", "x", "Down", "Down", "Down", "Down", "Right", "x", "Left", "Left", "Left", "x"]
+TeraFiragaKeys := ["Down", "Down", "x", "Down", "Down", "Down", "Down", "x", "Left", "Left", "Left", "x"]
+Tent := ["Enter", "x", "x", "x"]
+
+f:: {
+    Combat()
+}
 
 g::{
     Send "{Down down}"
@@ -30,6 +48,11 @@ g::{
     Sleep HoldTime
     Send "{Down up}"
 }
+
+t::{
+    PressKeys(Tent)
+}
+
 1::{
     PressKeys(AttackKeys)
 }
@@ -43,9 +66,9 @@ g::{
 }
 
 4::{
-
+    PressKeys(AttackKeys)
 }
 
 5::{
-    PressKeys(TeraFiraKeys)
+    PressKeys(TeraFiragaKeys)
 }
