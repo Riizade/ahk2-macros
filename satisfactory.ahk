@@ -7,3 +7,4 @@ SetTitleMatchMode 2 ; set match mode to match if the title contains the given st
 !Shift::Send "{Shift down}"
 !Ctrl::Send "{Ctrl down}"
 !w::Send "{w down}"
+!r::Send Reload

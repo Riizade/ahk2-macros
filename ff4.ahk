@@ -2,6 +2,9 @@
 
 SetTitleMatchMode 2 ; set match mode to match if the title contains the given string
 #HotIf WinActive("Final Fantasy IV Advance") ; only apply the following hotkeys if a FF window is focused
+
+!r::Send Reload
+
 HoldTime := 50
 IntervalTime := 50
 TurnIntervalTime := 500
@@ -51,24 +54,4 @@ g::{
 
 t::{
     PressKeys(Tent)
-}
-
-1::{
-    PressKeys(AttackKeys)
-}
-
-2::{
-    PressKeys(AttackKeys)
-}
-
-3::{
-    PressKeys(ParomuFiraKeys)
-}
-
-4::{
-    PressKeys(AttackKeys)
-}
-
-5::{
-    PressKeys(TeraFiragaKeys)
 }
